@@ -194,7 +194,7 @@ impl BlockUsages {
                     .usage
                     .insert(MemberPath::Var(expr.var), ExprVarMemberPath::Var(expr.clone()));
             }
-            Expr::Literal(_) => {}
+            Expr::Literal(_) | Expr::StringLiteral(_) => {}
             Expr::MemberAccess(expr) => {
                 if let Some(member_path) = &expr.member_path {
                     current.usage.insert(member_path.into(), member_path.clone());
@@ -218,7 +218,7 @@ impl BlockUsages {
 
     fn handle_pattern(pat: &Pattern, current: &mut Usage) {
         match pat {
-            Pattern::Literal(_) => {}
+            Pattern::Literal(_) | Pattern::StringLiteral(_) => {}
             Pattern::Variable(pat) => {
                 current.introductions.insert(VarId::Local(pat.var.id));
             }
