@@ -1,4 +1,3 @@
-use test::test_utils::assert_eq;
 use option::OptionTrait;
 
 #[test]

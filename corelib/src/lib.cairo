@@ -318,6 +318,10 @@ use zeroable::{Zeroable, NonZero};
 mod bytes_31;
 use bytes_31::{bytes31, bytes31_try_from_felt252, bytes31_to_felt252};
 
+// BytesArray.
+mod byte_array;
+use byte_array::{ByteArray, ByteArrayTrait};
+
 #[cfg(test)]
 mod test;
 
