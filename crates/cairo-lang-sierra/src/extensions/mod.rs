@@ -34,7 +34,10 @@ fn args_as_two_types(
 ) -> Result<(ConcreteTypeId, ConcreteTypeId), SpecializationError> {
     match args {
         [GenericArg::Type(ty0), GenericArg::Type(ty1)] => Ok((ty0.clone(), ty1.clone())),
-        [_, _] => Err(SpecializationError::UnsupportedGenericArg),
+        [_, _] => {
+            println!("yg1");
+            Err(SpecializationError::UnsupportedGenericArg)
+        }
         _ => Err(SpecializationError::WrongNumberOfGenericArgs),
     }
 }
